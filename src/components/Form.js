@@ -6,6 +6,11 @@ const Form = () => {
   /** Our global context state */
   const { formApiData } = useContext(FormContext);
 
+  /** Prevents input Enter pressed from submitting form */
+  const checkKeyDown = (e) => {
+    if (e.code === 'Enter') e.preventDefault();
+  };
+
   /** Handles our form submit,
    *  here we can hanlde custom validation and then post to remote Api if needed */
   const submitForm = (event) => {
@@ -18,6 +23,7 @@ const Form = () => {
     data += `Meetin Point : ${formApiData.meetingPoint}\n`;
     data += `Temperature : ${formApiData.temperature}\n`;
     data += `Weather : ${formApiData.weatherCondition}\n`;
+    console.log(event.target.name);
     alert("You are submitting " + data);
   };
 
@@ -28,6 +34,7 @@ const Form = () => {
           method="POST"
           name={formApiData.formData["name"]}
           onSubmit={submitForm}
+          onKeyDown={(e) => checkKeyDown(e)}
         >
           {formApiData.formPages.map((page) => (
             <Page pageData={page} key={page["uuid"]} />

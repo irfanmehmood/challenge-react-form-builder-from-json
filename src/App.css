@@ -24,3 +24,7 @@ fieldset {
 .label-block{
   margin:20px auto;
 }
+
+label {
+  margin-right:10px;
+}

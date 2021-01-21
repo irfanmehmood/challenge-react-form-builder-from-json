@@ -27,7 +27,7 @@ const FormElementDateTime = ({ elementData }) => {
 
   return (
     <div className="label-block">
-      <label htmlFor={elementData.name}>{elementData.label}</label>
+      <label htmlFor={elementData.name}>{elementData.label} {elementData.suffix}</label>
       <input
         name={elementData.name}
         type="number"

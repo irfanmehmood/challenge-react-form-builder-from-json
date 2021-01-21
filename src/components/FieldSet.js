@@ -25,7 +25,8 @@ const FieldSet = ({fieldSetData}) => {
 
 
     return <>
-    <fieldset>
+    <fieldset >
+    <legend>{fieldSetData.title}</legend>
       { fieldSetData.children.map((element) => (
           loadHtmlFormElements(element)
       )) }

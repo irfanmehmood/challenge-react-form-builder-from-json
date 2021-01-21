@@ -28,9 +28,53 @@ export const getFormDataFromApi = (dispatcherForm) => {
     .catch(function (error) {
       console.log(error);
     });
-
 }
 
 export const formatDate = (date) => {
   return date.slice(0, date.lastIndexOf("+"));
 }
+
+export const setHours = (value, dispatcherForm) => {
+  dispatcherForm({
+    type: "setHours",
+    payload: {'hours' : value},
+  });
+}
+
+export const setTemperature = (value, dispatcherForm) => {
+  dispatcherForm({
+    type: "setTemperature",
+    payload: {'temperature' : value},
+  });
+}
+
+export const setStartTime = (value, dispatcherForm) => {
+  dispatcherForm({
+    type: "setStartTime",
+    payload: {'startTime' : value},
+  });
+}
+
+export const setEndTime = (value, dispatcherForm) => {
+  dispatcherForm({
+    type: "setEndTime",
+    payload: {'endTime' : value},
+  });
+}
+
+export const setLocation = (value, dispatcherForm) => {
+  dispatcherForm({
+    type: "setLocation",
+    payload: {'location' : value},
+  });
+}
+
+export const setMeetingPoint = (value, dispatcherForm) => {
+  dispatcherForm({
+    type: "setMeetingPoint",
+    payload: {'meetingPoint' : value},
+  });
+}
+
+
+

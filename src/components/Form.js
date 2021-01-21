@@ -10,7 +10,15 @@ const Form = () => {
    *  here we can hanlde custom validation and then post to remote Api if needed */
   const submitForm = (event) => {
     event.preventDefault();
-    alert("You are submitting ");
+    let data = '\n';
+    data += `Start : ${formApiData.startTime}\n`;
+    data += `End : ${formApiData.endTime}\n`;
+    data += `Hours : ${formApiData.hours}\n`;
+    data += `Location : ${formApiData.location}\n`;
+    data += `Meetin Point : ${formApiData.meetingPoint}\n`;
+    data += `Temperature : ${formApiData.temperature}\n`;
+    data += `Weather : ${formApiData.weatherCondition}\n`;
+    alert("You are submitting " + data);
   };
 
   return (

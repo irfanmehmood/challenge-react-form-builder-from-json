@@ -13,7 +13,8 @@ const FormElementDateTime = ({ elementData }) => {
     } else if (elementData.name === 'temperature') {
       setTemperature(elementData.value, dispatcherForm );
     }
-  }, [])
+  }, [elementData.name, elementData.value, dispatcherForm ])
+
 
   const handleInputChange = (e) => {
     const value = e.target.value;

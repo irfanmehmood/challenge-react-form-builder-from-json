@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { FormContext } from "../../libs/FormContext";
 import { setLocation, setMeetingPoint } from "../../libs/helper";
 const FormElementSelect = ({ elementData }) => {
@@ -11,9 +11,8 @@ const FormElementSelect = ({ elementData }) => {
     } else if (elementData.name === 'meeting_point') {
       setMeetingPoint(elementData.value, dispatcherForm );
     } 
+  }, [elementData.name, elementData.value, dispatcherForm ])
 
-    
-  }, [])
 
   const handleInputChange = (e) => {
     const value = e.target.value;

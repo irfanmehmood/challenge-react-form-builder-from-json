@@ -12,11 +12,10 @@ const FormElementDateTime = ({ elementData }) => {
     } else if (elementData.name === 'start_time') {
       setStartTime(elementData.value, dispatcherForm );
     }
-  }, [])
+  }, [elementData.name, elementData.value, dispatcherForm ])
 
   const handleInputChange = (e) => {
     const value = e.target.value;
-    console.log(value);
     if (e.target.name === 'end_time') {
       setEndTime(value, dispatcherForm );
     } else if (e.target.name === 'start_time') {

@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Form from "./components/Form";
+import React, { useReducer, useEffect } from "react";
+import {FormContext} from './libs/FormContext';
+import FormReducer from './libs/FormReducer';
+import {getFormDataFromApi} from './libs/helper';
+import "./App.css"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  /** We now have a global state formApiData context, which can be accessed from anywhere */
+  const [formApiData, dispatcherForm] = useReducer(FormReducer.reducer, FormReducer.initialState);
+
+  /** React hook which works as componenetDidMount, as I have not provided any dependencies */
+  useEffect(() => {
+      getFormDataFromApi(dispatcherForm);
+  }, []);
+
+  return <>
+    <FormContext.Provider value={{formApiData, dispatcherForm}}>
+      <Form />
+    </FormContext.Provider>
+  </>;
 }
 
 export default App;

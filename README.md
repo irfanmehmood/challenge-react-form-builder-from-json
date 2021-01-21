@@ -6,3 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. git clone https://github.com/irfanmehmood/testingapp.git
 2. npm i
 3. npm start
+
+## Test App Load
+npm test
